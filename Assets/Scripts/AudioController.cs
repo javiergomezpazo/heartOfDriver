@@ -13,15 +13,19 @@ public class AudioController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void playSound(float velocity)
+    public void playSound(float velocity, bool enabled)
     {
-        Debug.Log("PlaySound");
-        if(velocity <= 1 && velocity >= -1)
+        if (enabled)
         {
-            velocity = 1f;
+            Debug.Log("PlaySound");
+            if (velocity <= 1 && velocity >= -1)
+            {
+                velocity = 1f;
+            }
+            audioSource.pitch = velocity / 80;
+            audioSource.PlayOneShot(audioMotor, 0.8f);
         }
-        audioSource.pitch = velocity/80;
-        audioSource.PlayOneShot(audioMotor, 0.8f);
+        
         
     }
    

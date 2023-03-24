@@ -7,9 +7,9 @@ public class CarController : MonoBehaviour
 
     public Rigidbody2D rigidbody2D;
 
-    public float driftCar = 0.85f;
-    public float accelerationFactor = 300.4f;
-    public float turnFactor = 2.8f;
+    public float driftCar = 0.65f;
+    public float accelerationFactor = 330.4f;
+    public float turnFactor = 3.5f;
     public float maxSpeed = 180f;
 
     float accelerationInput = 0;
@@ -46,10 +46,10 @@ public class CarController : MonoBehaviour
 
     bool applyEngineForce()
     {
-
+        Debug.Log("xxxxxxxxxxxxxxvvv");
         velocityUp = Vector2.Dot(transform.up, rigidbody2D.velocity);
 
-        audioController.playSound(velocityUp);
+        audioController.playSound(velocityUp, this.enabled);
 
         if ((velocityUp < -maxSpeed * 0.5f && accelerationInput < 0)
             || (velocityUp > maxSpeed  && accelerationInput > 0))

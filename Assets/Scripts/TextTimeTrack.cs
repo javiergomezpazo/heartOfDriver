@@ -35,6 +35,11 @@ public class TextTimeTrack : MonoBehaviour
     public void Finneshed()
     {
         finnished=true;
+
+        //Show View Finish
+
+        GameObject.Find("FinishGame").SendMessage("showView", (System.Object) text.text);
+
     }
     
     public void Started()
